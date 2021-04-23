@@ -1,0 +1,14 @@
+[property]
+gpu-id=0
+model-engine-file=weights/ir50_asia-l2norm-fp16-b1.engine
+batch-size=1
+net-scale-factor=0.0078125
+offsets=127.5;127.5;127.5
+force-implicit-batch-dim=1
+model-color-format=0
+network-mode=2
+process-mode=2
+network-type=100
+output-tensor-meta=1
+classifier-async-mode=0
+output-blob-names=output

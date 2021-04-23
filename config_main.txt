@@ -1,0 +1,95 @@
+[application]
+enable-perf-measurement=1
+perf-measurement-interval-sec=5
+
+[tiled-display]
+enable=0
+rows=1
+columns=1
+width=640
+height=480
+
+[source0]
+enable=1
+type=1
+camera-width=640
+camera-height=480
+camera-fps-n=30
+camera-fps-d=1
+camera-v4l2-dev-node=0
+
+[sink0]
+enable=1
+type=5
+sync=0
+display-id=0
+offset-x=0
+offset-y=0
+width=640
+height=480
+overlay-id=1
+source-id=0
+
+[sink1]
+enable=0
+type=3
+#1=mp4 2=mkv
+container=1
+#1=h264 2=h265 3=mpeg4
+codec=1
+#encoder type 0=Hardware 1=Software
+enc-type=0
+sync=0
+bitrate=2000000
+#H264 Profile - 0=Baseline 2=Main 4=High
+#H265 Profile - 0=Main 1=Main10
+profile=0
+output-file=out.mp4
+source-id=0
+
+[sink2]
+enable=0
+#Type - 1=FakeSink 2=EglSink 3=File 4=RTSPStreaming 5=Overlay
+type=4
+#1=h264 2=h265
+codec=1
+#encoder type 0=Hardware 1=Software
+enc-type=0
+sync=0
+bitrate=4000000
+#H264 Profile - 0=Baseline 2=Main 4=High
+#H265 Profile - 0=Main 1=Main10
+profile=0
+# set below properties in case of RTSPStreaming
+rtsp-port=8554
+udp-port=5400
+
+[osd]
+enable=1
+border-width=2
+text-size=15
+text-color=1;1;1;1;
+text-bg-color=0.3;0.3;0.3;1
+font=Serif
+
+[streammux]
+live-source=1
+batch-size=1
+batched-push-timeout=40000
+width=640
+height=480
+
+[primary-gie]
+enable=1
+config-file=config_detection.txt
+gie-unique-id=1
+bbox-border-color0=0;1;0;1
+
+[secondary-gie0]
+enable=1
+config-file=config_recognition.txt
+gie-unique-id=2
+operate-on-gie-id=1
+
+[tests]
+file-loop=0

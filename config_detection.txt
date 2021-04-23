@@ -1,0 +1,23 @@
+[property]
+gpu-id=0
+model-engine-file=weights/retina-mobile025-trim-288x320-fp16.engine
+batch-size=1
+net-scale-factor=1.0
+offsets=104.0;117.0;123.0
+force-implicit-batch-dim=1
+model-color-format=1
+network-mode=2
+process-mode=1
+# workaround for getting topk detection
+num-detected-classes=4
+# number of consecutive batches to skip for inference
+interval=0
+# custom detection parser
+parse-bbox-func-name=NvDsInferParseCustomRetinaFace
+custom-lib-path=nvdsinfer_customparser/libnvds_infercustomparser.so
+
+[class-attrs-all]
+# bbox threshold
+pre-cluster-threshold=0.6
+# nms threshold
+post-cluster-threshold=0.4

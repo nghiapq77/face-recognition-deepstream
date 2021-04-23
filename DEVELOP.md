@@ -1,0 +1,14 @@
+# Note on Face Recognition DeepStream
+- nvdsinfer\_customparser/nvdsinfer\_custombboxparser.cpp: Code to parse detection bbox
+- src/cosine\_similarity.[c/h]: Cosine similarity calculation class implemented in cuBLASLt for face matching.
+- src/deepstream\_app.[c/h]:
+    - Global variables in `struct _AppCtx`
+    - Get face embedding and do feature matching in `analytics_done_buf_prob` function
+- src/deepstream\_app\_main.[c/h]: in funcntion `main`:
+    - Config and embedding loader
+    - Init AppCtx variables
+- src/json.hpp: JSON library header
+- config.json: Embedding file paths, maxFacesPerScene, ArcFace output dim
+- config\_main.txt: Main config for DeepStream app
+- config\_detection.txt: Detection config for DeepStream app
+- config\_recognition.txt: Recognition config for DeepStream app

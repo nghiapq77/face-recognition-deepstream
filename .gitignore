@@ -1,0 +1,7 @@
+.clangd
+.clang-format
+compile_commands.json
+build/
+src/*.o
+*.so
+weights
